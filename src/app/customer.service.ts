@@ -14,15 +14,17 @@ export class CustomerService {
 
   // Centralized error handler
   private handleError(error: any): Observable<never> {
+    console.log("error found")
     let errorMessage = 'An error occurred';
-    if (error.error instanceof ErrorEvent) {
-      // Client-side error
-      errorMessage = `Client Error: ${error.error.message}`;
-    } else {
-      // Server-side error
-      errorMessage = `Server Error: ${error.status}\nMessage: ${error.message}`;
-    }
+    // if (error.error instanceof ErrorEvent) {
+    //   // Client-side error
+    //   errorMessage = `Client Error: ${error.error.message}`;
+    // } else {
+    //   // Server-side error
+    //   errorMessage = `Server Error: ${error.status}\nMessage: ${error.message}`;
+    // }
     this.notificationService.showNotification(errorMessage);
+
     return throwError(() => new Error(errorMessage));
   }
 

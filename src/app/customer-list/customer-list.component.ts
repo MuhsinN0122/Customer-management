@@ -73,6 +73,7 @@ export class CustomerListComponent {
       if (result.isConfirmed) {
         // Call the delete api for deleting customer.
         this.api.deleteCustomer(customerId).subscribe((data) => {
+          this.loadCustomers();
           Swal.fire(
             'Deleted!',
             'The customer has been deleted.',
