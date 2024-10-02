@@ -1,0 +1,21 @@
+.bg-light {
+    background-color: #f8f9fa !important;
+    /* Light background for the table head */
+}
+
+.icon-btn:hover mat-icon {
+    transform: scale(1.2);
+    /* Slightly increase icon size on hover */
+    color: #0056b3;
+    /* Change color on hover for primary icons */
+}
+
+.icon-btn[color="warn"]:hover mat-icon {
+    color: #d9534f;
+    /* Change color on hover for warn icons */
+}
+
+mat-icon {
+    transition: transform 0.3s, color 0.3s;
+    /* Smooth transition for hover effects */
+}

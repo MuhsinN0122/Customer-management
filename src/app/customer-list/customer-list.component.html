@@ -1,0 +1,69 @@
+<app-top-menu></app-top-menu> <!-- Top menu component for navigation -->
+<div class="container mt-3">
+  <div class="row mb-4 align-items-center">
+    <div class="col-md-3 text-start"> <!-- Column for the section title -->
+      <h2 class="mb-0">Customers</h2>  <!-- Title for the customer section -->
+    </div>
+    <div class="col-md-7 text-center"> <!-- Column for the search input -->
+      <!-- Search Input -->
+      <mat-form-field appearance="outline" class="w-50">
+        <mat-label>Search Customer by Name</mat-label>
+        <input matInput [formControl]="searchControl" placeholder="Search by name">
+        <mat-icon matSuffix>search</mat-icon> <!-- Search icon as suffix -->
+      </mat-form-field>
+    </div>
+    <div class="col-md-2 text-end"> <!-- Column for the "Add Customer" button -->
+      <button mat-raised-button color="primary" class="d-flex align-items-center" (click)="addCustomer()">
+        <mat-icon class="me-2">add_circle</mat-icon> Add Customer
+      </button>
+    </div>
+  </div>
+
+  <div class="table-responsive shadow-sm rounded"> <!-- Responsive table for displaying customer data -->
+    <table class="table table-hover table-bordered align-middle text-center"> <!-- Bootstrap table with styling for hover and borders -->
+      <thead class="bg-light">
+        <tr>
+          <th>Name</th> <!-- Column header for customer name -->
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- customer is an object of paginatedCustomers and iterating each objects via *ngFor directive-->
+        <tr *ngFor="let customer of paginatedCustomers">
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.username }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.phone }}</td>
+          <!-- hyper link is available for viewing the website -->
+          <td>
+            <a [href]="'http://' + customer.website" target="_blank" class="text-decoration-none">
+              {{ customer.website }}
+            </a>
+          </td>
+          <td>
+            <!-- View icon for view the details of customer -->
+            <button mat-icon-button color="primary" class="icon-btn" (click)="viewCustomer(customer.id)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <!-- delete icon for deleting the customer -->
+            <button mat-icon-button color="warn" class="icon-btn" (click)="deleteCustomer(customer.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Material Paginator -->
+  <!-- totalCustomers represents how many customer entries are available in the list.  -->
+  <!-- pagesize binds the number of items displayed per page. -->
+  <!-- [pageSizeOptions] property defines the options available for the user to choose how many items they want to see per page -->
+  <mat-paginator [length]="totalCustomers" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)" aria-label="Select page">
+  </mat-paginator>
+</div>

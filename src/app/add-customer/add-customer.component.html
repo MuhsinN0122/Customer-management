@@ -1,0 +1,169 @@
+<!-- Top Menu Component -->
+<app-top-menu></app-top-menu>
+
+<!-- Main Container for Customer Configuration Form -->
+<div class="container mt-4">
+  <!-- Card to hold the form, with shadow for better UI presentation -->
+  <div class="card shadow-lg">
+    <div class="card-body">
+
+      <!-- Form Title -->
+      <h2 class="card-title text-center mb-4">Customer Configuration</h2>
+
+      <!-- Reactive Form binding to 'customerForm', submitting the form triggers 'addCustomer()' -->
+      <form [formGroup]="customerForm" (ngSubmit)="addCustomer()">
+
+        <!-- Section: Personal Information -->
+        <h4 class="text-primary">Personal Information</h4>
+        <div class="row">
+          <!-- Name Input -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input id="name" type="text" class="form-control" formControlName="name"
+                placeholder="Enter customer name" />
+            </div>
+          </div>
+
+          <!-- Username Input -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input id="username" type="text" class="form-control" formControlName="username"
+                placeholder="Enter username" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Email Input -->
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input id="email" type="email" class="form-control" formControlName="email" placeholder="Enter email" />
+            </div>
+          </div>
+
+          <!-- Phone Input -->
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input id="phone" type="text" class="form-control" formControlName="phone"
+                placeholder="Enter phone number" />
+            </div>
+          </div>
+
+          <!-- Website Input -->
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label for="website" class="form-label">Website</label>
+              <input id="website" type="text" class="form-control" formControlName="website"
+                placeholder="Enter website" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Address Information -->
+        <h4 class="text-primary mt-4">Address</h4>
+        <!-- Form Group for Address -->
+        <div formGroupName="address">
+          <div class="row">
+            <!-- City Input -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <input id="city" type="text" class="form-control" formControlName="city" placeholder="Enter city" />
+              </div>
+            </div>
+
+            <!-- Street Input -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="street" class="form-label">Street</label>
+                <input id="street" type="text" class="form-control" formControlName="street"
+                  placeholder="Enter street" />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Suite Input -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="suite" class="form-label">Suite</label>
+                <input id="suite" type="text" class="form-control" formControlName="suite" placeholder="Enter suite" />
+              </div>
+            </div>
+
+            <!-- Zipcode Input -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="zipcode" class="form-label">Zipcode</label>
+                <input id="zipcode" type="text" class="form-control" formControlName="zipcode"
+                  placeholder="Enter zipcode" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Geo Location Information (Lat/Lng) -->
+          <div formGroupName="geo" class="row">
+            <!-- Latitude Input -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="lat" class="form-label">Latitude</label>
+                <input id="lat" type="text" class="form-control" formControlName="lat" placeholder="Enter latitude" />
+              </div>
+            </div>
+
+            <!-- Longitude Input -->
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="lng" class="form-label">Longitude</label>
+                <input id="lng" type="text" class="form-control" formControlName="lng" placeholder="Enter longitude" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Company Information -->
+        <h4 class="text-primary mt-4">Company Information</h4>
+        <!-- Form Group for Company Information -->
+        <div formGroupName="company">
+          <div class="row">
+            <!-- Company Name Input -->
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="company-name" class="form-label">Company Name</label>
+                <input id="company-name" type="text" class="form-control" formControlName="name"
+                  placeholder="Enter company name" />
+              </div>
+            </div>
+
+            <!-- Catchphrase Input -->
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="catchPhrase" class="form-label">Catchphrase</label>
+                <input id="catchPhrase" type="text" class="form-control" formControlName="catchPhrase"
+                  placeholder="Enter catchphrase" />
+              </div>
+            </div>
+
+            <!-- BS (Business Slogan) Input -->
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="bs" class="form-label">BS</label>
+                <input id="bs" type="text" class="form-control" formControlName="bs" placeholder="Enter BS" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center mt-4">
+          <!-- Disable the button if the form is invalid -->
+          <button type="submit" class="btn btn-primary px-5 py-2" [disabled]="!customerForm.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
