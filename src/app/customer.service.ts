@@ -14,7 +14,6 @@ export class CustomerService {
 
   // Centralized error handler
   private handleError(error: any): Observable<never> {
-    console.log("error found")
     let errorMessage = 'An error occurred';
     // if (error.error instanceof ErrorEvent) {
     //   // Client-side error

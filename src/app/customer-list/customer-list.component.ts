@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { debounceTime } from 'rxjs/operators';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-customer-list',
@@ -20,6 +20,19 @@ import { debounceTime } from 'rxjs/operators';
     MatButtonModule, MatIconModule, FormsModule,
     ReactiveFormsModule, MatFormFieldModule,
     MatPaginatorModule, MatInputModule
+  ],
+  animations: [
+    trigger('transitionMessages', [
+      state('open', style({
+        opacity: 1,
+      })),
+      state('closed', style({
+        opacity: 0,
+      })),
+      transition('open <=> closed', [
+        animate('0.5s')
+      ]),
+    ]),
   ],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'

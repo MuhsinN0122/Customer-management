@@ -14,7 +14,7 @@ export const routes: Routes = [
         // Route for the customer list component
         path: 'customer-list',
         // Dynamically load the CustomerListComponent when the route is accessed
-        loadComponent: () => 
+        loadComponent: () =>
             import('./customer-list/customer-list.component')
                 .then(m => m.CustomerListComponent)
     },
@@ -22,7 +22,7 @@ export const routes: Routes = [
         // Route for adding a new customer
         path: 'add-customer',
         // Dynamically load the AddCustomerComponent when this route is accessed
-        loadComponent: () => 
+        loadComponent: () =>
             import('./add-customer/add-customer.component')
                 .then(m => m.AddCustomerComponent)
     },
@@ -30,7 +30,7 @@ export const routes: Routes = [
         // Route for displaying customer details
         path: 'customer-details',
         // Dynamically load the CustomerDetailComponent when this route is accessed
-        loadComponent: () => 
+        loadComponent: () =>
             import('./customer-detail/customer-detail.component')
                 .then(m => m.CustomerDetailComponent)
     },

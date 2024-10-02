@@ -1,16 +1,16 @@
-# Instructions on how to run the application.
-# command for running the application
-`ng serve`
-# Once the development server is running, open your browser and navigate to:
-`http://localhost:4200`
-The application will automatically reload if you change any source files.
-
-
-
 # Before running the application, ensure you have the following installed:
 Node.js (v14 or higher)
 Angular CLI (v16 or higher)
 npm (comes with Node.js)
+
+
+# Instructions on how to run the application.
+# command for running the application
+`ng serve` or `ng serve `
+# Once the development server is running, open your browser and navigate to:
+`http://localhost:4200`
+The application will automatically reload if you change any source files.
+
 
 # Command for check angular version
 `ng version`

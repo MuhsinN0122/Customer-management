@@ -11,12 +11,14 @@ export class NotificationService {
   notification$ = this.notificationSubject.asObservable();
 
   showNotification(message: string) {
+    console.log(message);
     // this.notificationSubject.next(message);
 
     // // Clear the notification after 3 seconds (or adjust as needed)
     // setTimeout(() => {
     //   this.clearNotification();
     // }, 3000);
+    //If no error message founded , so error found shown.
     Swal.fire({
       title: 'Error!',
       text: " Error found ",
