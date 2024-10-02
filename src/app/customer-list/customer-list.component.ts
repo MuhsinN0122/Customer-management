@@ -45,7 +45,6 @@ export class CustomerListComponent {
       this.searchControl.valueChanges
         .pipe(debounceTime(300))  // Optional: debounce to avoid too many API calls on fast typing
         .subscribe(searchTerm => {
-          console.log(this.searchControl.value)
           this.filterCustomers(searchTerm);
         });
       this.totalCustomers = this.filteredCustomers.length;
