@@ -3,10 +3,16 @@ Node.js (v14 or higher)
 Angular CLI (v16 or higher)
 npm (comes with Node.js)
 
+# Install Angular Material
+ng add @angular/material
+
+# Install Bootstrap
+npm install bootstrap
+
 
 # Instructions on how to run the application.
 # command for running the application
-`ng serve` or `ng serve `
+`ng serve` or `ng serve --open`
 # Once the development server is running, open your browser and navigate to:
 `http://localhost:4200`
 The application will automatically reload if you change any source files.
