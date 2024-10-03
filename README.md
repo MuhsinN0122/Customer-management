@@ -1,13 +1,20 @@
-# Before running the application, ensure you have the following installed:
-Node.js (v14 or higher)
-Angular CLI (v16 or higher)
-npm (comes with Node.js)
+# necessary setup steps
+   # Clone the Repository
+   git clone https://github.com/MuhsinN0122/Customer-management.git
+   # Navigate to the Project Directory
+   cd Customer-management
+   # Ensure that you have Node.js and npm (Node Package Manager) installed. You can check if they are installed by running:
+   node -v
+   npm -v
+   # If they are not installed, download and install Node.js from nodejs.org. npm comes bundled with Node.js.
+   npm install -g @angular/cli
+   # You can check the version
+   ng version
+   # Install Project Dependencies
+   npm install
+   # Run the project
+   ng serve
 
-# Install Angular Material
-ng add @angular/material
-
-# Install Bootstrap
-npm install bootstrap
 
 
 # Instructions on how to run the application.
@@ -27,7 +34,7 @@ List customer details including name, username, email, phone number, website and
 Search functionality to filter customers by name.
 Pagination to navigate through customer lists.
 Error handling for API requests using HTTP interceptors.
-Angular Material and Bootstrap for styling.
+Angular Material and Bootstrap and css for styling.
 
 
 # Development Choices
