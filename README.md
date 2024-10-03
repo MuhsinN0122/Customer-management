@@ -1,6 +1,6 @@
 # necessary setup steps
    # Clone the Repository
-   git clone https://github.com/MuhsinN0122/Customer-management.git
+   git clone -b customer-management https://github.com/MuhsinN0122/Customer-management.git
    # Navigate to the Project Directory
    cd Customer-management
    # Ensure that you have Node.js and npm (Node Package Manager) installed. You can check if they are installed by running:
