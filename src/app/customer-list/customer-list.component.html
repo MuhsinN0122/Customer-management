@@ -8,7 +8,7 @@
       <!-- Search Input -->
       <mat-form-field appearance="outline" class="w-50">
         <mat-label>Search Customer by Name</mat-label>
-        <input matInput [formControl]="searchControl" placeholder="Search by name">
+        <input matInput [formControl]="searchControl" (change)="searchCustomer()" placeholder="Search by name">
         <mat-icon matSuffix>search</mat-icon> <!-- Search icon as suffix -->
       </mat-form-field>
     </div>
@@ -46,8 +46,11 @@
           </td>
           <td>
             <!-- View icon for view the details of customer -->
-            <button mat-icon-button color="primary" class="icon-btn" (click)="viewCustomer(customer.id)">
+            <button mat-icon-button color="primary" class="icon-btn" (click)="viewCustomer(customer.id,'view')">
               <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" class="icon-btn" (click)="editCustomer(customer.id,'edit')">
+              <mat-icon>edit</mat-icon>
             </button>
             <!-- delete icon for deleting the customer -->
             <button mat-icon-button color="warn" class="icon-btn" (click)="deleteCustomer(customer.id)">

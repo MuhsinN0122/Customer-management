@@ -13,6 +13,7 @@ import { TopMenuComponent } from '../top-menu/top-menu.component';
 })
 export class AddCustomerComponent {
   customerForm!: FormGroup;
+  customerDetails: any;
   constructor(private fb: FormBuilder,private api:CustomerService,private router: Router) {}
   customerId:any = sessionStorage.getItem("customerId");
   ngOnInit(): void {
@@ -22,6 +23,7 @@ export class AddCustomerComponent {
       phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       email: ['', [Validators.required, Validators.email]],
       website: [''],
+      // id:[''],
       address: this.fb.group({
         city: ['', Validators.required],
         street: ['', Validators.required],
@@ -38,27 +40,42 @@ export class AddCustomerComponent {
         bs: [''],
       })
     });
+    if(this.customerId!='null'){
+      this.customerData();
+    }
   }
-
-  // setFormValues() {
-  //   this.customerForm.patchValue({
-  //     name: 'John Doe',
-  //     username: 'johndoe',
-  //     phone: '1234567890',
-  //     email: 'johndoe@example.com',
-  //     website: 'www.johndoe.com',
-  //     address: {
-  //       city: 'New York',
-  //       street: '123 Main St',
-  //       suite: 'Apt 1',
-  //       zipcode: '10001',
-  //       geo: {
-  //         lat: '40.7128',
-  //         lng: '-74.0060',
-  //       }
-  //     }
-  //   });
-  // }
+  customerData() {
+    // api for getting customer details
+    this.api.customerDetails(this.customerId).subscribe((data) => {
+      this.customerDetails = data;
+      this.setFormValues()
+    });
+  }
+  setFormValues() {
+    this.customerForm.patchValue({
+      id:this.customerDetails.id,
+      name: this.customerDetails.name,
+      username: this.customerDetails.username,
+      phone: this.customerDetails.phone,
+      email: this.customerDetails.email,
+      website: this.customerDetails.website,
+      address: {
+        city: this.customerDetails.address.city,
+        street: this.customerDetails.address.street,
+        suite: this.customerDetails.address.suite,
+        zipcode: this.customerDetails.address.zipcode,
+        geo: {
+          lat: this.customerDetails.address.geo.lat,
+          lng: this.customerDetails.address.geo.lng,
+        },
+      },
+      company: {
+        name:this.customerDetails.company.name,
+        catchPhrase:this.customerDetails.company.catchPhrase,
+        bs:this.customerDetails.company.bs
+      }
+    });
+  }
   addCustomer() {
     if (this.customerForm.valid) {
       this.api.addCustomer(this.customerForm.value).subscribe((data)=>{

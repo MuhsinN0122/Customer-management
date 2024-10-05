@@ -2,16 +2,19 @@ import { Component } from '@angular/core';
 import { CustomerService } from '../customer.service';
 import { Router } from '@angular/router';
 import { TopMenuComponent } from "../top-menu/top-menu.component";
+import { CommonModule } from '@angular/common';
+import { AddCustomerComponent } from '../add-customer/add-customer.component';
 
 @Component({
   selector: 'app-customer-detail',
   standalone: true,
-  imports: [TopMenuComponent],
+  imports: [TopMenuComponent,CommonModule,AddCustomerComponent],
   templateUrl: './customer-detail.component.html',
   styleUrl: './customer-detail.component.css'
 })
 export class CustomerDetailComponent {
-  cutomerId: any = sessionStorage.getItem("customerId"); // get customer id from session storage
+  customerId: any = sessionStorage.getItem("customerId"); // get customer id from session storage
+  purpose = sessionStorage.getItem("purpose");
   customerDetails: any;
   constructor(private api: CustomerService, private router: Router) { }
   ngOnInit() {
@@ -19,7 +22,7 @@ export class CustomerDetailComponent {
   }
   customerData() {
     // api for getting customer details
-    this.api.customerDetails(this.cutomerId).subscribe((data) => {
+    this.api.customerDetails(this.customerId).subscribe((data) => {
       this.customerDetails = data;
     });
   }

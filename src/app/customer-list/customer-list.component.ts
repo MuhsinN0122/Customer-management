@@ -55,18 +55,29 @@ export class CustomerListComponent {
       this.customerList = data;
       this.filteredCustomers = data;
       // Listen for changes in the search input
-      this.searchControl.valueChanges
-        .pipe(debounceTime(300))  // Optional: debounce to avoid too many API calls on fast typing
-        .subscribe(searchTerm => {
-          this.filterCustomers(searchTerm);
-        });
+      // this.searchControl.valueChanges
+      //   .pipe(debounceTime(300))  // Optional: debounce to avoid too many API calls on fast typing
+      //   .subscribe(searchTerm => {
+      //     this.filterCustomers(searchTerm);
+      //   });
       this.totalCustomers = this.filteredCustomers.length;
       this.updatePaginatedCustomers();
     });
   }
+  searchCustomer() {
+    // Listen for changes in the search input
+    this.searchControl.valueChanges
+      .pipe(debounceTime(300))  // Optional: debounce to avoid too many API calls on fast typing
+      .subscribe(searchTerm => {
+        this.filterCustomers(searchTerm);
+      });
+    this.totalCustomers = this.filteredCustomers.length;
+    this.updatePaginatedCustomers();
+  }
   // View customer
-  viewCustomer(customerId: any) {
+  viewCustomer(customerId: any, purpose: any) {
     sessionStorage.setItem("customerId", customerId);
+    sessionStorage.setItem("purpose", purpose);
     this.router.navigateByUrl('/customer-details');
   }
   // delete customer by passing customerId and data type any.
@@ -114,7 +125,7 @@ export class CustomerListComponent {
       this.filteredCustomers = this.customerList;  // If search term is empty, show all customers
     }
     this.totalCustomers = this.filteredCustomers.length;
-    this.currentPage=0;  // if we search the customer name in second page , switch to 1st page.
+    this.currentPage = 0;  // if we search the customer name in second page , switch to 1st page.
     this.updatePaginatedCustomers();
   }
   updatePaginatedCustomers(customers: any[] = this.filteredCustomers): void {
@@ -129,6 +140,12 @@ export class CustomerListComponent {
   }
   addCustomer() {
     sessionStorage.setItem("customerId", 'null');
+    sessionStorage.setItem("purpose", 'null');
     this.router.navigateByUrl('/add-customer');
+  }
+  editCustomer(customerId: any, purpose: any) {
+    sessionStorage.setItem("customerId", customerId);
+    sessionStorage.setItem("purpose", purpose);
+    this.router.navigateByUrl('/customer-details');
   }
 }
