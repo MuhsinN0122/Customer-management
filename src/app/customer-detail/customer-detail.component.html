@@ -1,124 +1,120 @@
-<div *ngIf="purpose=='view'">
-    <app-top-menu></app-top-menu> <!-- Top menu component for navigation -->
+<!-- <div *ngIf="purpose=='view'"> -->
+<app-top-menu></app-top-menu> <!-- Top menu component for navigation -->
 
-    <div class="container mt-3"> <!-- Main container for the customer details section -->
-        <div class="card shadow border-0 rounded-4">
-            <!-- Card component for displaying customer details with shadow and rounded corners -->
-            <div class="card-body"> <!-- Card body to hold the content of the card -->
+<div class="container mt-3"> <!-- Main container for the customer details section -->
+    <div class="card shadow border-0 rounded-4">
+        <!-- Card component for displaying customer details with shadow and rounded corners -->
+        <div class="card-body"> <!-- Card body to hold the content of the card -->
 
-                <h2 class="card-title text-center mb-4">Customer details</h2>
-                <!-- Title for the customer details page, centered -->
+            <h2 class="card-title text-center mb-4">Customer details</h2>
+            <!-- Title for the customer details page, centered -->
 
-                <!-- Personal Information Section -->
-                <div class="mb-4"> <!-- Section for personal information -->
-                    <h4 class="text-primary border-bottom pb-2">Personal Information</h4>
-                    <!-- Section title with primary color and a bottom border -->
-                    <div class="row"> <!-- Row to organize name and username in two columns -->
-                        <div class="col-md-6 mb-3"> <!-- Column for displaying customer's name -->
-                            <label class="font-weight-bold">Name:</label> <!-- Label for Name -->
-                            <p class="text-muted">{{ customerDetails.name }}</p> <!-- Display customer's name -->
-                        </div>
-                        <div class="col-md-6 mb-3"> <!-- Column for displaying customer's username -->
-                            <label class="font-weight-bold">Username:</label> <!-- Label for Username -->
-                            <p class="text-muted">{{ customerDetails.username }}</p>
-                            <!-- Display customer's username -->
-                        </div>
+            <!-- Personal Information Section -->
+            <div class="mb-4"> <!-- Section for personal information -->
+                <h4 class="text-primary border-bottom pb-2">Personal Information</h4>
+                <!-- Section title with primary color and a bottom border -->
+                <div class="row"> <!-- Row to organize name and username in two columns -->
+                    <div class="col-md-6 mb-3"> <!-- Column for displaying customer's name -->
+                        <label class="font-weight-bold">Name:</label> <!-- Label for Name -->
+                        <p class="text-muted">{{ customerDetails.name }}</p> <!-- Display customer's name -->
                     </div>
-                    <div class="row"> <!-- Row for email and phone details -->
-                        <div class="col-md-6 mb-3"> <!-- Column for customer's email -->
-                            <label class="font-weight-bold">Email:</label> <!-- Label for Email -->
-                            <p class="text-muted">{{ customerDetails.email }}</p> <!-- Display customer's email -->
-                        </div>
-                        <div class="col-md-6 mb-3"> <!-- Column for customer's phone number -->
-                            <label class="font-weight-bold">Phone:</label> <!-- Label for Phone -->
-                            <p class="text-muted">{{ customerDetails.phone }}</p>
-                            <!-- Display customer's phone number -->
-                        </div>
-                    </div>
-                    <div class="row"> <!-- Row for website information -->
-                        <div class="col-md-6 mb-3"> <!-- Column for customer's website -->
-                            <label class="font-weight-bold">Website:</label> <!-- Label for Website -->
-                            <p class="text-muted">{{ customerDetails.website }}</p> <!-- Display customer's website -->
-                        </div>
+                    <div class="col-md-6 mb-3"> <!-- Column for displaying customer's username -->
+                        <label class="font-weight-bold">Username:</label> <!-- Label for Username -->
+                        <p class="text-muted">{{ customerDetails.username }}</p>
+                        <!-- Display customer's username -->
                     </div>
                 </div>
-
-                <!-- Address Information Section -->
-                <div class="mb-4"> <!-- Section for address information -->
-                    <h4 class="text-primary border-bottom pb-2">Address Information</h4>
-                    <!-- Section title with primary color and a bottom border -->
-                    <div class="row"> <!-- Row for city and street details -->
-                        <div class="col-md-6 mb-3"> <!-- Column for city -->
-                            <label class="font-weight-bold">City:</label> <!-- Label for City -->
-                            <p class="text-muted">{{ customerDetails.address.city }}</p>
-                            <!-- Display customer's city -->
-                        </div>
-                        <div class="col-md-6 mb-3"> <!-- Column for street -->
-                            <label class="font-weight-bold">Street:</label> <!-- Label for Street -->
-                            <p class="text-muted">{{ customerDetails.address.street }}</p>
-                            <!-- Display customer's street -->
-                        </div>
+                <div class="row"> <!-- Row for email and phone details -->
+                    <div class="col-md-6 mb-3"> <!-- Column for customer's email -->
+                        <label class="font-weight-bold">Email:</label> <!-- Label for Email -->
+                        <p class="text-muted">{{ customerDetails.email }}</p> <!-- Display customer's email -->
                     </div>
-                    <div class="row"> <!-- Row for suite and zipcode details -->
-                        <div class="col-md-6 mb-3"> <!-- Column for suite -->
-                            <label class="font-weight-bold">Suite:</label> <!-- Label for Suite -->
-                            <p class="text-muted">{{ customerDetails.address.suite }}</p>
-                            <!-- Display customer's suite -->
-                        </div>
-                        <div class="col-md-6 mb-3"> <!-- Column for zipcode -->
-                            <label class="font-weight-bold">Zipcode:</label> <!-- Label for Zipcode -->
-                            <p class="text-muted">{{ customerDetails.address.zipcode }}</p>
-                            <!-- Display customer's zipcode -->
-                        </div>
-                    </div>
-                    <div class="row"> <!-- Row for geographical coordinates (latitude and longitude) -->
-                        <div class="col-md-6 mb-3"> <!-- Column for latitude -->
-                            <label class="font-weight-bold">Latitude:</label> <!-- Label for Latitude -->
-                            <p class="text-muted">{{ customerDetails.address.geo.lat }}</p>
-                            <!-- Display customer's latitude -->
-                        </div>
-                        <div class="col-md-6 mb-3"> <!-- Column for longitude -->
-                            <label class="font-weight-bold">Longitude:</label> <!-- Label for Longitude -->
-                            <p class="text-muted">{{ customerDetails.address.geo.lng }}</p>
-                            <!-- Display customer's longitude -->
-                        </div>
+                    <div class="col-md-6 mb-3"> <!-- Column for customer's phone number -->
+                        <label class="font-weight-bold">Phone:</label> <!-- Label for Phone -->
+                        <p class="text-muted">{{ customerDetails.phone }}</p>
+                        <!-- Display customer's phone number -->
                     </div>
                 </div>
-
-                <!-- Company Information Section -->
-                <div class="mb-4"> <!-- Section for company information -->
-                    <h4 class="text-primary border-bottom pb-2">Company Information</h4>
-                    <!-- Section title with primary color and a bottom border -->
-                    <div class="row"> <!-- Row for company name and catchphrase -->
-                        <div class="col-md-6 mb-3"> <!-- Column for company name -->
-                            <label class="font-weight-bold">Company Name:</label> <!-- Label for Company Name -->
-                            <p class="text-muted">{{ customerDetails.company.name }}</p>
-                            <!-- Display customer's company name -->
-                        </div>
-                        <div class="col-md-6 mb-3"> <!-- Column for company's catchphrase -->
-                            <label class="font-weight-bold">Catchphrase:</label> <!-- Label for Catchphrase -->
-                            <p class="text-muted">{{ customerDetails.company.catchPhrase }}</p>
-                            <!-- Display customer's company catchphrase -->
-                        </div>
-                    </div>
-                    <div class="row"> <!-- Row for BS (business strategy) -->
-                        <div class="col-md-6 mb-3"> <!-- Column for BS -->
-                            <label class="font-weight-bold">BS:</label> <!-- Label for BS -->
-                            <p class="text-muted">{{ customerDetails.company.bs }}</p>
-                            <!-- Display customer's company BS -->
-                        </div>
+                <div class="row"> <!-- Row for website information -->
+                    <div class="col-md-6 mb-3"> <!-- Column for customer's website -->
+                        <label class="font-weight-bold">Website:</label> <!-- Label for Website -->
+                        <p class="text-muted">{{ customerDetails.website }}</p> <!-- Display customer's website -->
                     </div>
                 </div>
+            </div>
 
-                <!-- Back button to navigate to customer list -->
-                <div class="text-center mt-4"> <!-- Centered back button -->
-                    <button class="btn btn-primary btn-lg" (click)="back()">Back</button>
-                    <!-- Button that navigates back to the customer list -->
+            <!-- Address Information Section -->
+            <div class="mb-4"> <!-- Section for address information -->
+                <h4 class="text-primary border-bottom pb-2">Address Information</h4>
+                <!-- Section title with primary color and a bottom border -->
+                <div class="row"> <!-- Row for city and street details -->
+                    <div class="col-md-6 mb-3"> <!-- Column for city -->
+                        <label class="font-weight-bold">City:</label> <!-- Label for City -->
+                        <p class="text-muted">{{ customerDetails.address.city }}</p>
+                        <!-- Display customer's city -->
+                    </div>
+                    <div class="col-md-6 mb-3"> <!-- Column for street -->
+                        <label class="font-weight-bold">Street:</label> <!-- Label for Street -->
+                        <p class="text-muted">{{ customerDetails.address.street }}</p>
+                        <!-- Display customer's street -->
+                    </div>
                 </div>
+                <div class="row"> <!-- Row for suite and zipcode details -->
+                    <div class="col-md-6 mb-3"> <!-- Column for suite -->
+                        <label class="font-weight-bold">Suite:</label> <!-- Label for Suite -->
+                        <p class="text-muted">{{ customerDetails.address.suite }}</p>
+                        <!-- Display customer's suite -->
+                    </div>
+                    <div class="col-md-6 mb-3"> <!-- Column for zipcode -->
+                        <label class="font-weight-bold">Zipcode:</label> <!-- Label for Zipcode -->
+                        <p class="text-muted">{{ customerDetails.address.zipcode }}</p>
+                        <!-- Display customer's zipcode -->
+                    </div>
+                </div>
+                <div class="row"> <!-- Row for geographical coordinates (latitude and longitude) -->
+                    <div class="col-md-6 mb-3"> <!-- Column for latitude -->
+                        <label class="font-weight-bold">Latitude:</label> <!-- Label for Latitude -->
+                        <p class="text-muted">{{ customerDetails.address.geo.lat }}</p>
+                        <!-- Display customer's latitude -->
+                    </div>
+                    <div class="col-md-6 mb-3"> <!-- Column for longitude -->
+                        <label class="font-weight-bold">Longitude:</label> <!-- Label for Longitude -->
+                        <p class="text-muted">{{ customerDetails.address.geo.lng }}</p>
+                        <!-- Display customer's longitude -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Information Section -->
+            <div class="mb-4"> <!-- Section for company information -->
+                <h4 class="text-primary border-bottom pb-2">Company Information</h4>
+                <!-- Section title with primary color and a bottom border -->
+                <div class="row"> <!-- Row for company name and catchphrase -->
+                    <div class="col-md-6 mb-3"> <!-- Column for company name -->
+                        <label class="font-weight-bold">Company Name:</label> <!-- Label for Company Name -->
+                        <p class="text-muted">{{ customerDetails.company.name }}</p>
+                        <!-- Display customer's company name -->
+                    </div>
+                    <div class="col-md-6 mb-3"> <!-- Column for company's catchphrase -->
+                        <label class="font-weight-bold">Catchphrase:</label> <!-- Label for Catchphrase -->
+                        <p class="text-muted">{{ customerDetails.company.catchPhrase }}</p>
+                        <!-- Display customer's company catchphrase -->
+                    </div>
+                </div>
+                <div class="row"> <!-- Row for BS (business strategy) -->
+                    <div class="col-md-6 mb-3"> <!-- Column for BS -->
+                        <label class="font-weight-bold">BS:</label> <!-- Label for BS -->
+                        <p class="text-muted">{{ customerDetails.company.bs }}</p>
+                        <!-- Display customer's company BS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back button to navigate to customer list -->
+            <div class="text-center mt-4"> <!-- Centered back button -->
+                <button class="btn btn-primary btn-lg" (click)="back()">Back</button>
+                <!-- Button that navigates back to the customer list -->
             </div>
         </div>
     </div>
-</div>
-<div  *ngIf="purpose=='edit'">
-    <app-add-customer></app-add-customer>
 </div>

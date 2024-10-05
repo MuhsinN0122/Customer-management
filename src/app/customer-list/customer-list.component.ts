@@ -146,6 +146,6 @@ export class CustomerListComponent {
   editCustomer(customerId: any, purpose: any) {
     sessionStorage.setItem("customerId", customerId);
     sessionStorage.setItem("purpose", purpose);
-    this.router.navigateByUrl('/customer-details');
+    this.router.navigateByUrl('/add-customer');
   }
 }
