@@ -19,18 +19,25 @@
           <!-- Name Input -->
           <div class="col-md-6">
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
+              <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
               <input id="name" type="text" class="form-control" formControlName="name"
                 placeholder="Enter customer name" />
+              <div *ngIf="customerForm.get('name')?.touched && customerForm.get('name')?.invalid" class="text-danger">
+                Name is required
+              </div>
             </div>
           </div>
 
           <!-- Username Input -->
           <div class="col-md-6">
             <div class="mb-3">
-              <label for="username" class="form-label">Username</label>
+              <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
               <input id="username" type="text" class="form-control" formControlName="username"
                 placeholder="Enter username" />
+              <div *ngIf="customerForm.get('username')?.touched && customerForm.get('username')?.invalid"
+                class="text-danger">
+                Username is required
+              </div>
             </div>
           </div>
         </div>
@@ -39,17 +46,23 @@
           <!-- Email Input -->
           <div class="col-md-4">
             <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
               <input id="email" type="email" class="form-control" formControlName="email" placeholder="Enter email" />
+              <div *ngIf="customerForm.get('email')?.touched && customerForm.get('email')?.invalid" class="text-danger">
+                Email is required
+              </div>
             </div>
           </div>
 
           <!-- Phone Input -->
           <div class="col-md-4">
             <div class="mb-3">
-              <label for="phone" class="form-label">Phone</label>
+              <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
               <input id="phone" type="text" class="form-control" formControlName="phone"
                 placeholder="Enter phone number" />
+              <div *ngIf="customerForm.get('phone')?.touched && customerForm.get('phone')?.invalid" class="text-danger">
+                Phone number is required
+              </div>
             </div>
           </div>
 
@@ -71,17 +84,25 @@
             <!-- City Input -->
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="city" class="form-label">City</label>
+                <label for="city" class="form-label">City <span class="text-danger">*</span></label>
                 <input id="city" type="text" class="form-control" formControlName="city" placeholder="Enter city" />
+                <div *ngIf="customerForm.get('address.city')?.touched && customerForm.get('address.city')?.invalid"
+                  class="text-danger">
+                  City is required
+                </div>
               </div>
             </div>
 
             <!-- Street Input -->
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="street" class="form-label">Street</label>
+                <label for="street" class="form-label">Street <span class="text-danger">*</span></label>
                 <input id="street" type="text" class="form-control" formControlName="street"
                   placeholder="Enter street" />
+                <div *ngIf="customerForm.get('address.street')?.touched && customerForm.get('address.street')?.invalid"
+                  class="text-danger">
+                  Street is required
+                </div>
               </div>
             </div>
           </div>
@@ -98,9 +119,14 @@
             <!-- Zipcode Input -->
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="zipcode" class="form-label">Zipcode</label>
+                <label for="zipcode" class="form-label">Zipcode <span class="text-danger">*</span></label>
                 <input id="zipcode" type="text" class="form-control" formControlName="zipcode"
                   placeholder="Enter zipcode" />
+                <div
+                  *ngIf="customerForm.get('address.zipcode')?.touched && customerForm.get('address.zipcode')?.invalid"
+                  class="text-danger">
+                  Zipcode is required
+                </div>
               </div>
             </div>
           </div>
@@ -110,7 +136,7 @@
             <!-- Latitude Input -->
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="lat" class="form-label">Latitude</label>
+                <label for="lat" class="form-label">Latitude <span class="text-danger">*</span></label>
                 <input id="lat" type="text" class="form-control" formControlName="lat" placeholder="Enter latitude" />
               </div>
             </div>
@@ -118,7 +144,7 @@
             <!-- Longitude Input -->
             <div class="col-md-6">
               <div class="mb-3">
-                <label for="lng" class="form-label">Longitude</label>
+                <label for="lng" class="form-label">Longitude <span class="text-danger">*</span></label>
                 <input id="lng" type="text" class="form-control" formControlName="lng" placeholder="Enter longitude" />
               </div>
             </div>
@@ -133,9 +159,13 @@
             <!-- Company Name Input -->
             <div class="col-md-4">
               <div class="mb-3">
-                <label for="company-name" class="form-label">Company Name</label>
+                <label for="company-name" class="form-label">Company Name <span class="text-danger">*</span></label>
                 <input id="company-name" type="text" class="form-control" formControlName="name"
                   placeholder="Enter company name" />
+                <div *ngIf="customerForm.get('company.name')?.touched && customerForm.get('company.name')?.invalid"
+                  class="text-danger">
+                  Company name is required
+                </div>
               </div>
             </div>
 

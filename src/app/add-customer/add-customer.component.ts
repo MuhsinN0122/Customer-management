@@ -4,10 +4,11 @@ import Swal from 'sweetalert2';
 import { CustomerService } from '../customer.service';
 import { Router } from '@angular/router';
 import { TopMenuComponent } from '../top-menu/top-menu.component';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-customer',
   standalone: true,
-  imports: [ReactiveFormsModule,TopMenuComponent],
+  imports: [ReactiveFormsModule,TopMenuComponent,CommonModule],
   templateUrl: './add-customer.component.html',
   styleUrl: './add-customer.component.css'
 })
@@ -23,7 +24,6 @@ export class AddCustomerComponent {
       phone: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       email: ['', [Validators.required, Validators.email]],
       website: [''],
-      // id:[''],
       address: this.fb.group({
         city: ['', Validators.required],
         street: ['', Validators.required],
@@ -48,7 +48,7 @@ export class AddCustomerComponent {
     // api for getting customer details
     this.api.customerDetails(this.customerId).subscribe((data) => {
       this.customerDetails = data;
-      this.setFormValues()
+      this.setFormValues();
     });
   }
   setFormValues() {
